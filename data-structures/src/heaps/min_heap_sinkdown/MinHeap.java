@@ -1,12 +1,12 @@
-package heaps.sinkdown;
+package heaps.min_heap_sinkdown;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Heap {
+public class MinHeap {
     private List<Integer> heap;
 
-    public Heap() {
+    public MinHeap() {
         this.heap = new ArrayList<>();
     }
 
@@ -36,30 +36,30 @@ public class Heap {
         heap.add(value);
         int current = heap.size() - 1;
 
-        while (current > 0 && heap.get(current) > heap.get(parent(current))) {
+        while (current > 0 && heap.get(current) < heap.get(parent(current))) {
             swap(current, parent(current));
             current = parent(current);
         }
     }
 
     public void sinkDown(int index) {
-        int maxIndex = index;
+        int minIndex = index;
 
         while (true) {
-            int leftIndex = leftChild(maxIndex);
-            int rightIndex = rightChild(maxIndex);
+            int leftIndex = leftChild(minIndex);
+            int rightIndex = rightChild(minIndex);
 
-            if (leftIndex < heap.size() && heap.get(leftIndex) > heap.get(maxIndex)) {
-                maxIndex = leftIndex;
+            if (leftIndex < heap.size() && heap.get(leftIndex) < heap.get(minIndex)) {
+                minIndex = leftIndex;
             }
 
-            if (rightIndex < heap.size() && heap.get(rightIndex) > heap.get(maxIndex)) {
-                maxIndex = rightIndex;
+            if (rightIndex < heap.size() && heap.get(rightIndex) < heap.get(minIndex)) {
+                minIndex = rightIndex;
             }
 
-            if (index != maxIndex) {
-                swap(index, maxIndex);
-                index = maxIndex;
+            if (index != minIndex) {
+                swap(index, minIndex);
+                index = minIndex;
             } else {
                 break;
             }
@@ -76,22 +76,11 @@ public class Heap {
             return heap.remove(0);
         }
 
-        int maxValue = heap.get(0);
+        int minValue = heap.get(0);
         heap.set(0, heap.remove(heap.size() - 1));
         sinkDown(0);
 
-        return maxValue;
+        return minValue;
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-

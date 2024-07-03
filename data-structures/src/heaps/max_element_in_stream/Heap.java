@@ -1,4 +1,4 @@
-package heaps.sinkdown;
+package heaps.max_element_in_stream;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +42,11 @@ public class Heap {
         }
     }
 
-    public void sinkDown(int index) {
+    private void sinkDown(int index) {
         int maxIndex = index;
-
         while (true) {
-            int leftIndex = leftChild(maxIndex);
-            int rightIndex = rightChild(maxIndex);
+            int leftIndex = leftChild(index);
+            int rightIndex = rightChild(index);
 
             if (leftIndex < heap.size() && heap.get(leftIndex) > heap.get(maxIndex)) {
                 maxIndex = leftIndex;
@@ -57,15 +56,14 @@ public class Heap {
                 maxIndex = rightIndex;
             }
 
-            if (index != maxIndex) {
+            if (maxIndex != index) {
                 swap(index, maxIndex);
                 index = maxIndex;
             } else {
-                break;
+                return;
             }
         }
     }
-
 
     public Integer remove() {
         if (heap.size() == 0) {
@@ -84,14 +82,3 @@ public class Heap {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
