@@ -1,6 +1,7 @@
-package merge_sort.merge_sort_method;
+package merge_sort.merge_sort;
 
 import java.util.Arrays;
+
 
 public class Main {
 
@@ -35,11 +36,12 @@ public class Main {
 
     public static int[] mergeSort(int[] array) {
         if (array.length == 1) return array;
-        int midIndex = (int) Math.ceil(array.length / 2);
+        int midIndex = array.length / 2;
         int[] left = mergeSort(Arrays.copyOfRange(array, 0, midIndex));
         int[] right = mergeSort(Arrays.copyOfRange(array, midIndex, array.length));
         return merge(left, right);
     }
+
 
     public static void main(String[] args) {
 
@@ -63,3 +65,4 @@ public class Main {
     }
 
 }
+

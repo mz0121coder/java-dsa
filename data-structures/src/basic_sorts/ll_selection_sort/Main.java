@@ -1,4 +1,4 @@
-package basic_sorts.bubble_sort_linked_list;
+package basic_sorts.ll_selection_sort;
 
 public class Main {
 
@@ -15,7 +15,7 @@ public class Main {
         System.out.println("Unsorted Linked List:");
         myLinkedList.printList();
 
-        myLinkedList.bubbleSort();
+        myLinkedList.selectionSort();
 
         System.out.println("\nSorted Linked List:");
         myLinkedList.printList();

@@ -1,6 +1,7 @@
-package merge_sort.merge_method;
+package merge_sort.merge;
 
 import java.util.Arrays;
+
 
 public class Main {
 
@@ -31,7 +32,6 @@ public class Main {
         }
         return combined;
     }
-
 
     public static void main(String[] args) {
 

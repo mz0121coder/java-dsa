@@ -1,4 +1,4 @@
-package basic_sorts.bubble_sort_linked_list;
+package basic_sorts.ll_bubble_sort;
 
 public class LinkedList {
 
@@ -64,18 +64,18 @@ public class LinkedList {
         if (length < 2) return;
 
         Node sortedUntil = null;
-        while (sortedUntil != head.next) {
-            Node current = head;
-            while (current.next != sortedUntil) {
-                Node nextNode = current.next;
-                if (current.value > nextNode.value) {
-                    int temp = current.value;
-                    current.value = nextNode.value;
-                    nextNode.value = temp;
+
+        while (sortedUntil != this.head.next) {
+            Node curr = head;
+            while (curr.next != sortedUntil) {
+                if (curr.value > curr.next.value) {
+                    int temp = curr.value;
+                    curr.value = curr.next.value;
+                    curr.next.value = temp;
                 }
-                current = current.next;
+                curr = curr.next;
             }
-            sortedUntil = current;
+            sortedUntil = curr;
         }
     }
 }
