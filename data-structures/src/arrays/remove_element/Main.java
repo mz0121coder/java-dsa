@@ -2,17 +2,16 @@ package arrays.remove_element;
 
 import java.util.Arrays;
 
-
 public class Main {
     public static int removeElement(int[] nums, int val) {
-        int result = nums.length;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == val) {
-                nums[i] = val * 7;
-                result--;
+        int i = 0;
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] != val) {
+                nums[i] = nums[j];
+                i++;
             }
         }
-        return result;
+        return i;
     }
 
     public static void main(String[] args) {
